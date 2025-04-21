@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.gerenciamento</groupId>
+  <artifactId>GerenciamentoAtividades</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <version.wildfly>27.0.1.Final</version.wildfly>
+    <version.resteasy>6.2.3.Final</version.resteasy>
+    <version.hibernate>6.2.13.Final</version.hibernate>
+  </properties>
+
+  <!-- ADICIONE ESTE BLOCO PARA REPOSITÓRIOS -->
+  <repositories>
+    <repository>
+      <id>jboss-releases</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <!-- Jakarta EE 10 -->
+    <dependency>
+      <groupId>jakarta.platform</groupId>
+      <artifactId>jakarta.jakartaee-api</artifactId>
+      <version>10.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- RESTEasy (JAX-RS 3.1) -->
+    <dependency>
+	    <groupId>org.jboss.resteasy</groupId>
+	    <artifactId>resteasy-jaxrs</artifactId>
+	    <version>6.2.3.Final</version>
+	    <scope>provided</scope>
+	</dependency>
+
+    <!-- Hibernate 6 -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${version.hibernate}</version>
+    </dependency>
+
+    <!-- MySQL Driver -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+
+    <!-- CDI -->
+    <dependency>
+      <groupId>jakarta.enterprise</groupId>
+      <artifactId>jakarta.enterprise.cdi-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
